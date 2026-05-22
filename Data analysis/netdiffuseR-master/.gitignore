@@ -1,0 +1,29 @@
+Meta
+doc
+.Rproj.user
+.Rhistory
+.RData
+inst/doc
+
+# Binary files
+*.so
+*.o
+*.xls*
+*.doc*
+*.ppt*
+*.ods
+*.zip
+*.gz
+*.tar
+# Tempfiles
+*.dta
+*.log
+*.out
+*.tex
+playground/
+doc/
+
+# Other files
+.vscode/
+config.status
+src/Makevars
