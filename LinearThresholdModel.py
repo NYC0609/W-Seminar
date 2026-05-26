@@ -4,18 +4,17 @@ import random
 from icecream import ic
 
 all_agents = []
-seed_frac = 0.1 # initial adopters
 num_agents = 690
 num_neighbors = 20
 
 
 class Agent:
     global all_agents
-    def __init__(self, thetamin, thetamax):
+    def __init__(self, thetamin, thetamax, seed_frac):
         all_agents.append(self)
         self.neighbors = []
         self.state = 0
-        self.own_theta = random.uniform(thetamin, thetamax)
+        self.own_theta = random.uniform(thetamin, thetamax) # the lower the theta value, the easier the agent adopts the innovation
         if random.random() < seed_frac:
             self.own_theta = 0
             self.state = 1
@@ -27,19 +26,25 @@ class Agent:
                 new_n = random.choice(all_agents)
             self.neighbors.append(new_n)
     
-    def eval_state(self):
+    def eval_state(self) -> int:
         state_total = 0
-        will_eval = random.random()
-        if will_eval < 0.2: # will stay in old state
-            return
+
+        # ensure that agents cannot go from state 1 to state 0
+        if self.state == 1:
+            return 1
+         
         for n in self.neighbors:
             state_total += n.state
-        self.state = 1 if state_total/len(self.neighbors)>self.own_theta else 0 # 1 if average of states is greater than theta, 0 else
-        
+         
+        if state_total/len(self.neighbors)>self.own_theta:
+            return 1
+        else:
+            return 0
 
-def create_Agents(number: int, thmax: float, thmin: float):
+
+def create_Agents(number: int, thmax: float, thmin: float, seed_frac: float):
     for _ in range(number):
-        tmp = Agent(thetamax=thmax, thetamin=thmin)
+        tmp = Agent(thetamax=thmax, thetamin=thmin, seed_frac=seed_frac)
 
 
 
@@ -49,14 +54,14 @@ def eval_frac(lst: list) -> float:
 
 spread_counter = 0
 
-def run_sim(agent_numer: int, thetamax: float, thetamin: float, plot: bool) -> list[float]: # returns the fractions of adopters at each timestep
+def run_sim(agent_numer: int, thetamax: float, thetamin: float, seed_frac: float, iterations: int, plot: bool) -> list[float]: # returns the fractions of adopters at each timestep
     global all_agents
     global spread_counter
 
 
 
     all_agents = []
-    create_Agents(number=agent_numer, thmax=thetamax, thmin=thetamin)
+    create_Agents(number=agent_numer, thmax=thetamax, thmin=thetamin, seed_frac=seed_frac)
 
     all_agents_copy = all_agents.copy()
 
@@ -68,22 +73,24 @@ def run_sim(agent_numer: int, thetamax: float, thetamin: float, plot: bool) -> l
 
     all_states = [a.state for a in all_agents]
     fraction = 0.5
-    reps = 0
     points = [] # stores the adopter fractions
 
-    while fraction != 1 and fraction !=0:
-        if reps > 1000:
-            raise RuntimeError('too many iterations')
+    for _ in range(iterations):
         all_states = [a.state for a in all_agents]
         fraction = eval_frac(all_states)
         points.append(fraction)
 
-        for agent in all_agents_copy:
-            agent.eval_state()
-        all_agents = all_agents_copy
-        reps += 1
+        new_states: list[int] = []
+        for agent in all_agents:
+            new_states.append(agent.eval_state())
+
+        for id, state in enumerate(new_states):
+            all_agents[id].state = state
+
+        print(fraction)
+
     if plot: 
-        plt.plot(np.linspace(1, reps, num=reps), points)
+        plt.plot(np.linspace(1, iterations, num=iterations), points)
         plt.title(label=f'neighbors: {num_neighbors}, theta range from {thetamin} to {thetamax}')
         plt.show()
 
@@ -112,5 +119,7 @@ def run_series(number_runs):
     print(f'seed agent fraction: {seed_frac}')
     print(f'fraction of successfull runs: {spread_counter/runs}')
     print('----------------------------------------------------')
+
+run_sim(agent_numer=50, thetamax=0.8, thetamin=0.2, iterations=20, seed_frac=0.1, plot=False)
 
 
