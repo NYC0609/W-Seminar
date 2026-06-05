@@ -5,7 +5,7 @@ from icecream import ic
 
 all_agents = []
 num_agents = 690
-num_neighbors = 20
+num_neighbors = 4
 
 
 class Agent:
@@ -87,39 +87,14 @@ def run_sim(agent_numer: int, thetamax: float, thetamin: float, seed_frac: float
         for id, state in enumerate(new_states):
             all_agents[id].state = state
 
-        print(fraction)
+        # print(fraction)
 
     if plot: 
         plt.plot(np.linspace(1, iterations, num=iterations), points)
         plt.title(label=f'neighbors: {num_neighbors}, theta range from {thetamin} to {thetamax}')
         plt.show()
-
-   
-    if fraction == 0:
-        print(0)
-        pass
-    else:
-        print(1)
-        spread_counter += 1
     return points
 
-def run_series(number_runs):
-    for _ in range(number_runs):
-        try:
-            run_sim()
-        except RuntimeError as e:
-            ic(thetamin, thetamax)
-            print(e)
-        thetamin += 0.01
-        thetamax -= 0.01
 
-    print('----------------------------------------------------')
-    print(f'number of agents: {num_agents}')
-    print(f'number of neighbors: {num_neighbors}')
-    print(f'seed agent fraction: {seed_frac}')
-    print(f'fraction of successfull runs: {spread_counter/runs}')
-    print('----------------------------------------------------')
-
-run_sim(agent_numer=50, thetamax=0.8, thetamin=0.2, iterations=20, seed_frac=0.1, plot=False)
-
+run_sim(agent_numer=50, thetamax=0.4, thetamin=0.1, iterations=20, seed_frac=0.1, plot=False)
 
