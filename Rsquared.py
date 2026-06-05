@@ -1,5 +1,5 @@
 from sklearn.metrics import r2_score
-from LinearThresholdModel import run_sim
+import LinearThresholdModel as ltm
 import pandas as pd
 import numpy as np
 
@@ -18,7 +18,8 @@ for _ in range(100):
     thmin = round(thmin, ndigits=3)
 
     for _ in range(100):
-        y_pred = run_sim(agent_numer=100, thetamax=thmax, thetamin=thmin, seed_frac=0.2, iterations=20, plot=False)
+        ltm.set_params(thetamaxI=thmax, thetaminI=thmin, num_agentsI=692, num_neighborsI=5, seed_fracI=0.1)
+        y_pred = ltm.run_sim()
         score = r2_score(y_true=fractions_data, y_pred=y_pred)
         # print('theta min: ' + str(thmin) + ', theta max: ' + str(thmax) + '   score: ' + str(score))
 

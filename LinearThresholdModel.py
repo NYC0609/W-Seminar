@@ -1,20 +1,38 @@
+import traceback
 import matplotlib.pyplot as plt
 import numpy as np
 import random
 from icecream import ic
 
-all_agents = []
-num_agents = 690
-num_neighbors = 4
+
+thetamin: float = 0.0
+thetamax: float = 0.0
+seed_frac: float = 0.0
+num_agents: int = 0
+num_neighbors: int = 0
+
+def set_params(thetaminI, thetamaxI, seed_fracI, num_agentsI, num_neighborsI):
+    global thetamin
+    global thetamax
+    global seed_frac
+    global num_agents
+    global num_neighbors
+
+    thetamin = thetaminI # for random theta
+    thetamax = thetamaxI
+    seed_frac = seed_fracI # initial adopters
+    num_agents = num_agentsI
+    num_neighbors = num_neighborsI
 
 
 class Agent:
     global all_agents
-    def __init__(self, thetamin, thetamax, seed_frac):
+    def __init__(self):
         all_agents.append(self)
         self.neighbors = []
         self.state = 0
-        self.own_theta = random.uniform(thetamin, thetamax) # the lower the theta value, the easier the agent adopts the innovation
+        self.own_theta = random.uniform(thetamin, thetamax)
+        # ic(self.own_theta)
         if random.random() < seed_frac:
             self.own_theta = 0
             self.state = 1
@@ -26,7 +44,7 @@ class Agent:
                 new_n = random.choice(all_agents)
             self.neighbors.append(new_n)
     
-    def eval_state(self) -> int:
+    def eval_state(self):
         state_total = 0
 
         # ensure that agents cannot go from state 1 to state 0
@@ -40,11 +58,10 @@ class Agent:
             return 1
         else:
             return 0
-
-
-def create_Agents(number: int, thmax: float, thmin: float, seed_frac: float):
+        
+def create_Agents(number: int):
     for _ in range(number):
-        tmp = Agent(thetamax=thmax, thetamin=thmin, seed_frac=seed_frac)
+        tmp = Agent()
 
 
 
@@ -54,14 +71,13 @@ def eval_frac(lst: list) -> float:
 
 spread_counter = 0
 
-def run_sim(agent_numer: int, thetamax: float, thetamin: float, seed_frac: float, iterations: int, plot: bool) -> list[float]: # returns the fractions of adopters at each timestep
+def run_sim() -> list[float]:
     global all_agents
     global spread_counter
-
-
+    global num_agents
 
     all_agents = []
-    create_Agents(number=agent_numer, thmax=thetamax, thmin=thetamin, seed_frac=seed_frac)
+    create_Agents(number=num_agents)
 
     all_agents_copy = all_agents.copy()
 
@@ -73,28 +89,51 @@ def run_sim(agent_numer: int, thetamax: float, thetamin: float, seed_frac: float
 
     all_states = [a.state for a in all_agents]
     fraction = 0.5
-    points = [] # stores the adopter fractions
+    reps = 0
+    points = []
 
-    for _ in range(iterations):
+    while 0 < fraction < 1:
+    # for _ in range(iterations):
+        if reps > 1000:
+            raise RuntimeError('too many iterations')
         all_states = [a.state for a in all_agents]
         fraction = eval_frac(all_states)
         points.append(fraction)
 
-        new_states: list[int] = []
-        for agent in all_agents:
-            new_states.append(agent.eval_state())
+        new_states = [agent.eval_state() for agent in all_agents]
 
-        for id, state in enumerate(new_states):
-            all_agents[id].state = state
-
-        # print(fraction)
-
-    if plot: 
-        plt.plot(np.linspace(1, iterations, num=iterations), points)
-        plt.title(label=f'neighbors: {num_neighbors}, theta range from {thetamin} to {thetamax}')
-        plt.show()
+        for agent, state in zip(all_agents, new_states):
+            agent.state = state
+        all_agents = all_agents_copy
+        reps += 1
+    
+    plt.plot(np.linspace(1, reps, num=reps), points)
+    plt.title(label=f'neighbors: {num_neighbors}, theta range from {thetamin} to {thetamax}')
+    plt.show()
+   
+    if fraction == 0:
+        print(0)
+        pass
+    else:
+        print(1)
+        spread_counter += 1
+    
     return points
 
+set_params(thetaminI=0.1, thetamaxI=0.5, seed_fracI=0.1, num_agentsI=692, num_neighborsI=20)
+runs = 10
+for _ in range(runs):
+    try:
+        run_sim()
+    except Exception as e:
+        print(e)
+        pass
+    thetamin += 0.01
+    thetamax -= 0.01
 
-run_sim(agent_numer=50, thetamax=0.4, thetamin=0.1, iterations=20, seed_frac=0.1, plot=False)
-
+print('----------------------------------------------------')
+print(f'number of agents: {num_agents}')
+print(f'number of neighbors: {num_neighbors}')
+print(f'seed agent fraction: {seed_frac}')
+print(f'fraction of successfull runs: {spread_counter/runs}')
+print('----------------------------------------------------')
