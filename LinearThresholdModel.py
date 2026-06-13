@@ -5,21 +5,21 @@ import random
 from icecream import ic
 
 
-thetamin: float = 0.0
-thetamax: float = 0.0
+stdev: float = 0.0
+mean: float = 0.0
 seed_frac: float = 0.0
 num_agents: int = 0
 num_neighbors: int = 0
 
-def set_params(thetaminI, thetamaxI, seed_fracI, num_agentsI, num_neighborsI):
-    global thetamin
-    global thetamax
+def set_params(meanI, stdevI, seed_fracI, num_agentsI, num_neighborsI):
+    global stdev
+    global mean
     global seed_frac
     global num_agents
     global num_neighbors
 
-    thetamin = thetaminI # for random theta
-    thetamax = thetamaxI
+    stdev = stdevI # for random theta
+    mean = meanI
     seed_frac = seed_fracI # initial adopters
     num_agents = num_agentsI
     num_neighbors = num_neighborsI
@@ -31,8 +31,8 @@ class Agent:
         all_agents.append(self)
         self.neighbors = []
         self.state = 0
-        self.own_theta = random.uniform(thetamin, thetamax)
-        # ic(self.own_theta)
+        self.own_theta = max(np.random.normal(loc=mean, scale=stdev), 0)
+        # print(self.own_theta)
         if random.random() < seed_frac:
             self.own_theta = 0
             self.state = 1
@@ -71,7 +71,7 @@ def eval_frac(lst: list) -> float:
 
 spread_counter = 0
 
-def run_sim(iterations: int) -> list[float]:
+def run_sim(iterations: int, plot: bool) -> list[float]:
     global all_agents
     global spread_counter
     global num_agents
@@ -106,11 +106,13 @@ def run_sim(iterations: int) -> list[float]:
         for agent, state in zip(all_agents, new_states):            #
             agent.state = state
         reps += 1
-    """     
-    plt.plot(np.linspace(1, reps, num=reps), points)
-    plt.title(label=f'neighbors: {num_neighbors}, theta range from {thetamin} to {thetamax}')
-    plt.show()
-    """  
+
+    # plot adoption fraction over time
+    if plot:
+        plt.plot(np.linspace(1, reps, num=reps), points)
+        plt.title(label=f'neighbors: {num_neighbors}, theta chosen with from mean {mean}, standard deviation {stdev}')
+        plt.show()
+
     if fraction == 0:
         pass
     else:
@@ -118,22 +120,3 @@ def run_sim(iterations: int) -> list[float]:
     
     return points
 
-'''
-set_params(thetaminI=0.1, thetamaxI=0.5, seed_fracI=0.1, num_agentsI=692, num_neighborsI=20)
-runs = 10
-for _ in range(runs):
-    try:
-        run_sim()
-    except Exception as e:
-        print(e)
-        pass
-    thetamin += 0.01
-    thetamax -= 0.01
-
-print('----------------------------------------------------')
-print(f'number of agents: {num_agents}')
-print(f'number of neighbors: {num_neighbors}')
-print(f'seed agent fraction: {seed_frac}')
-print(f'fraction of successfull runs: {spread_counter/runs}')
-print('----------------------------------------------------')
-'''
