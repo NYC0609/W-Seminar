@@ -71,11 +71,12 @@ def eval_frac(lst: list) -> float:
 
 spread_counter = 0
 
-def run_sim() -> list[float]:
+def run_sim(iterations: int) -> list[float]:
     global all_agents
     global spread_counter
     global num_agents
 
+    # initiate the Agents
     all_agents = []
     create_Agents(number=num_agents)
 
@@ -87,39 +88,37 @@ def run_sim() -> list[float]:
 
     all_agents = all_agents_copy
 
+
     all_states = [a.state for a in all_agents]
     fraction = 0.5
     reps = 0
     points = []
 
-    while 0 < fraction < 1:
-    # for _ in range(iterations):
+    for _ in range(iterations):
         if reps > 1000:
             raise RuntimeError('too many iterations')
-        all_states = [a.state for a in all_agents]
-        fraction = eval_frac(all_states)
+
+        all_states = [a.state for a in all_agents]  # store the states of all agents, and
+        fraction = eval_frac(all_states)            # evaluate the fraction of adopters based on all states
         points.append(fraction)
 
-        new_states = [agent.eval_state() for agent in all_agents]
-
-        for agent, state in zip(all_agents, new_states):
+        new_states = [agent.eval_state() for agent in all_agents]   # evaluate the next state for each Agent, and store it in a list. Then,
+        for agent, state in zip(all_agents, new_states):            #
             agent.state = state
-        all_agents = all_agents_copy
         reps += 1
-    
+    """     
     plt.plot(np.linspace(1, reps, num=reps), points)
     plt.title(label=f'neighbors: {num_neighbors}, theta range from {thetamin} to {thetamax}')
     plt.show()
-   
+    """  
     if fraction == 0:
-        print(0)
         pass
     else:
-        print(1)
         spread_counter += 1
     
     return points
 
+'''
 set_params(thetaminI=0.1, thetamaxI=0.5, seed_fracI=0.1, num_agentsI=692, num_neighborsI=20)
 runs = 10
 for _ in range(runs):
@@ -137,3 +136,4 @@ print(f'number of neighbors: {num_neighbors}')
 print(f'seed agent fraction: {seed_frac}')
 print(f'fraction of successfull runs: {spread_counter/runs}')
 print('----------------------------------------------------')
+'''
