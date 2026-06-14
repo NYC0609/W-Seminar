@@ -1,4 +1,4 @@
-from sklearn.metrics import r2_score
+from sklearn.metrics import r2_score, mean_squared_error
 import LinearThresholdModel as ltm
 import pandas as pd
 import numpy as np
@@ -13,11 +13,11 @@ scores: list[float] = []
 thmin_values: list[float] = []
 thmax_values: list[float] = []
 
-for _ in range(100):
+for _ in range(50):
     thmax = 0.9
     thmin = round(thmin, ndigits=3)
 
-    for _ in range(100):
+    for _ in range(50):
         ltm.set_params(thetamaxI=thmax, thetaminI=thmin, num_agentsI=692, num_neighborsI=5, seed_fracI=0.1)
         
         run_: bool = True
@@ -30,7 +30,7 @@ for _ in range(100):
             except:
                 print('unsuccessfull run, restarting...')
 
-        score = r2_score(y_true=fractions_data, y_pred=y_pred)
+        score = mean_squared_error(y_true=fractions_data, y_pred=y_pred)
         
         """  
         # output the theta values as well as the score data
@@ -62,5 +62,5 @@ def write_df() -> pd.DataFrame:
 dataframe = write_df()
 print(dataframe)
 print('\nbest score:')
-print(dataframe.loc[dataframe['score'].idxmax()])
+print(dataframe.loc[dataframe['score'].idxmin()])
 # run_sim(agent_numer=100, thetamax=0.58, thetamin=0.42, seed_frac=0.2, iterations=20, plot=True)
