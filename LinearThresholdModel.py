@@ -103,8 +103,8 @@ def run_sim(iterations: int, plot: bool) -> list[float]:
         points.append(fraction)
 
         new_states = [agent.eval_state() for agent in all_agents]   # evaluate the next state for each Agent, and store it in a list. Then,
-        for agent, state in zip(all_agents, new_states):            #
-            agent.state = state
+        for agent, state in zip(all_agents, new_states):            # loop throuph the state array and the agent array and
+            agent.state = state                                     # update the agents state
         reps += 1
 
     # plot adoption fraction over time
