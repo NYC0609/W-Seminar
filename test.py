@@ -20,15 +20,16 @@ for i in range(50):                                     # run the simulation n t
 
 average_pred: list[float] = []              # initialize an empty array for the average of all runs
 
+plt.figure(figsize=(10,10))
 for i in range(len(outputs[0])):            # len(outputs[0]) corresponds to the number of iterations the model used
     s = 0
     for d in outputs:                       # for each dataset in the outputs array,
+        plt.plot(d, color='grey', alpha=0.03, linewidth=1)
         s += d[i]                           # add the ith element of the array to a running total
     average_pred.append(s/len(outputs))     # divide the total by the length of the outputs array to get the average value for the ith iteration
 
 print(average_pred)
 
-plt.figure(figsize=(10,10))
 plt.title(f'LTM with parameters mean = {mean}, stdev = {stdev}, predicting the Brazilian farmers dataset')
 
 plt.plot(range(len(y_data)), fractions_data, label='dataset')
