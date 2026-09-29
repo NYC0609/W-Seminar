@@ -7,6 +7,8 @@ from icecream import ic
 all_agents = []
 seed_frac = 0.1 # number of seed agents
 
+alpha = 0.5
+
 
 class Agent:
     global all_agents

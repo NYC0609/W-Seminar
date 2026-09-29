@@ -28,8 +28,6 @@ for i in range(len(outputs[0])):            # len(outputs[0]) corresponds to the
         s += d[i]                           # add the ith element of the array to a running total
     average_pred.append(s/len(outputs))     # divide the total by the length of the outputs array to get the average value for the ith iteration
 
-print(average_pred)
-
 plt.title(f'LTM with parameters mean = {mean}, stdev = {stdev}, predicting the Brazilian farmers dataset')
 
 plt.plot(range(len(y_data)), fractions_data, label='dataset')
