@@ -5,8 +5,12 @@ import numpy as np
 from icecream import ic
 import matplotlib.pyplot as plt
 
-y_data = [6, 8, 12, 18, 50, 53, 56, 70, 73, 163, 169, 211, 228, 269, 333, 388 ,452 ,497, 540, 692]
-fractions_data = [i/692 for i in y_data]
+brfarmers = [6, 8, 12, 18, 50, 53, 56, 70, 73, 163, 169, 211, 228, 269, 333, 388, 452, 497, 540, 692]  # brfarmers dataset cumulative adopters
+kfamily = [69, 163, 244, 330, 395, 457, 510, 563, 636, 673, 1047]                                      # kfamily dataset cumulative adopters
+
+y_data = kfamily    # set the dataset to be used
+num_agents = y_data[-1]
+fractions_data = [i/num_agents for i in y_data]
 
 mean = 0.0
 stdev = 0.0
@@ -15,10 +19,16 @@ scores: list[float] = []
 mean_values: list[float] = []
 stdev_values: list[float] = []
 
-for _ in range(100): # increments the sdandard deviation
-    for _ in range(300): # increments the mean
-        ltm.set_params(meanI=mean, stdevI=stdev, seed_fracI=0.01, num_agentsI=692, num_neighborsI=10)   # set up the simulation 
-        y_pred = ltm.run_sim(iterations=20, plot=False)                                                 # run the simulation
+
+mean_increment = 0.01
+stdev_increment = 0.01
+mean_iterations = 50
+stdev_iterations = 50
+
+for _ in range(stdev_iterations): # increments the sdandard deviation
+    for _ in range(mean_iterations): # increments the mean
+        ltm.set_params(meanI=mean, stdevI=stdev, seed_fracI=y_data[0]/y_data[-1], num_agentsI=num_agents, num_neighborsI=10)   # set up the simulation 
+        y_pred = ltm.run_sim(iterations=len(y_data), plot=False)                                                 # run the simulation
         score = mean_squared_error(y_pred=y_pred, y_true=fractions_data)                                # evaluate the MSE
         
         mean_values.append(mean)
@@ -26,10 +36,10 @@ for _ in range(100): # increments the sdandard deviation
         scores.append(score)
 
         # print(f'mean: {mean}, stdev: {stdev}     score: {score}')
-        mean += 0.005    # increment mean
+        mean += mean_increment    # increment mean
         mean = round(mean, ndigits=5)
     mean = 0.0
-    stdev += 0.005   # increment stdev
+    stdev += stdev_increment   # increment stdev
     stdev = round(stdev, ndigits=5)
 
 def write_df(path) -> pd.DataFrame:
@@ -50,10 +60,10 @@ def plot():
     ax.set_zlabel('Error')
     plt.show()
 
-dataframe = write_df('errors.xlsx')
+dataframe = write_df('errors_kfamily.xlsx')
 print('\n\n\n')
 print(dataframe)
 print('\nbest score:')
 print(dataframe.loc[dataframe['score'].idxmin()])
-#plot()
-# run_sim(agent_numer=100, thetamax=0.58, thetamin=0.42, seed_frac=0.2, iterations=20, plot=True)
+
+plot()

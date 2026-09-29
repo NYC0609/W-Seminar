@@ -1,20 +1,23 @@
 import LinearThresholdModel as ltm
 import matplotlib.pyplot as plt
 
-y_data = [6, 8, 12, 18, 50, 53, 56, 70, 73, 163, 169, 211, 228, 269, 333, 388 ,452 ,497, 540, 692]
-fractions_data = [i/692 for i in y_data]
+brfarmers = [6, 8, 12, 18, 50, 53, 56, 70, 73, 163, 169, 211, 228, 269, 333, 388, 452, 497, 540, 692]  # brfarmers dataset cumulative adopters
+kfamily = [69, 163, 244, 330, 395, 457, 510, 563, 636, 673, 1047]                                      # kfamily dataset cumulative adopters
+
+y_data = kfamily    # set the dataset to be used
+fractions_data = [i/y_data[-1] for i in y_data]
 print(fractions_data)
 
-mean = 0.42
-stdev = 0.275
+mean = 0.43
+stdev = 0.31
 
-ltm.set_params(meanI=mean, stdevI=stdev, seed_fracI=0.01, num_agentsI=692, num_neighborsI=5)
+ltm.set_params(meanI=mean, stdevI=stdev, seed_fracI=y_data[0]/y_data[-1], num_agentsI=y_data[-1], num_neighborsI=5)
 
 outputs: list[list[float]] = []
 
 # evaluate the average of several runs:
 for i in range(50):                                     # run the simulation n times, for each run:
-    y_pred = ltm.run_sim(iterations=20, plot=False)     # store the predicted datapoints in y_pred
+    y_pred = ltm.run_sim(iterations=len(y_data), plot=False)     # store the predicted datapoints in y_pred
     if y_pred[-1] > 0.5:                                # if the diffusion was successfull:
         outputs.append(y_pred)                          # append y_pred to outputs
 
@@ -28,7 +31,7 @@ for i in range(len(outputs[0])):            # len(outputs[0]) corresponds to the
         s += d[i]                           # add the ith element of the array to a running total
     average_pred.append(s/len(outputs))     # divide the total by the length of the outputs array to get the average value for the ith iteration
 
-plt.title(f'LTM with parameters mean = {mean}, stdev = {stdev}, predicting the Brazilian farmers dataset')
+plt.title(f'LTM with parameters mean = {mean}, stdev = {stdev}, predicting the Korean family dataset')
 
 plt.plot(range(len(y_data)), fractions_data, label='dataset')
 plt.plot(range(len(average_pred)), average_pred, label='averaged predictions')
