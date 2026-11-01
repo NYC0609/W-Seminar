@@ -10,19 +10,22 @@ mean: float = 0.0
 seed_frac: float = 0.0
 num_agents: int = 0
 num_neighbors: int = 0
+update_prob: float = 0.3
 
-def set_params(meanI, stdevI, seed_fracI, num_agentsI, num_neighborsI):
+def set_params(meanI, stdevI, seed_fracI, num_agentsI, num_neighborsI, update_probI):
     global stdev
     global mean
     global seed_frac
     global num_agents
     global num_neighbors
+    global update_prob
 
     stdev = stdevI # for random theta
     mean = meanI
     seed_frac = seed_fracI # initial adopters
     num_agents = num_agentsI
     num_neighbors = num_neighborsI
+    update_prob = update_probI
 
 
 class Agent:
@@ -45,6 +48,10 @@ class Agent:
             self.neighbors.append(new_n)
     
     def eval_state(self):
+        _update = random.random()
+        if _update > update_prob: # check if the agent should update
+            return self.state
+        
         state_total = 0
 
         # ensure that agents cannot go from state 1 to state 0
@@ -84,7 +91,7 @@ def run_sim(iterations: int, plot: bool) -> list[float]:
 
     agent: Agent
     for agent in all_agents_copy:
-        agent.eval_Neighbors(num_neighbors=num_neighbors)
+            agent.eval_Neighbors(num_neighbors=num_neighbors)
 
     all_agents = all_agents_copy
 
