@@ -34,7 +34,9 @@ class Agent:
         all_agents.append(self)
         self.neighbors = []
         self.state = 0
-        self.own_theta = max(np.random.normal(loc=mean, scale=stdev), 0)
+        self.own_theta = 0
+        while self.own_theta <= 0 or self.own_theta >=1:
+            self.own_theta = max(np.random.normal(loc=mean, scale=stdev), 0)
         # print(self.own_theta)
         if random.random() < seed_frac:
             self.own_theta = 0
@@ -61,7 +63,7 @@ class Agent:
         for n in self.neighbors:
             state_total += n.state
          
-        if state_total/len(self.neighbors)>self.own_theta:
+        if state_total/len(self.neighbors)>=self.own_theta:
             return 1
         else:
             return 0
