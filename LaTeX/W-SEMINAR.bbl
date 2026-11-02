@@ -1,0 +1,344 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global/global}
+    \entry{Axelrod97}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=8543c20166972560d101ccf0213e5599}{%
+           family={Axelrod},
+           familyi={A\bibinitperiod},
+           given={R.},
+           giveni={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{8543c20166972560d101ccf0213e5599}
+      \strng{fullhash}{8543c20166972560d101ccf0213e5599}
+      \strng{fullhashraw}{8543c20166972560d101ccf0213e5599}
+      \strng{bibnamehash}{8543c20166972560d101ccf0213e5599}
+      \strng{authorbibnamehash}{8543c20166972560d101ccf0213e5599}
+      \strng{authornamehash}{8543c20166972560d101ccf0213e5599}
+      \strng{authorfullhash}{8543c20166972560d101ccf0213e5599}
+      \strng{authorfullhashraw}{8543c20166972560d101ccf0213e5599}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of conflict resolution}
+      \field{number}{9}
+      \field{title}{The Dissemination of culture}
+      \field{volume}{41}
+      \field{year}{1997}
+      \field{pages}{203\bibrangedash 226}
+      \range{pages}{24}
+    \endentry
+    \entry{Bass69}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=ef53f680ae17f18d68fc5be6c56a7a05}{%
+           family={Bass},
+           familyi={B\bibinitperiod},
+           given={F.},
+           giveni={F\bibinitperiod}}}%
+      }
+      \strng{namehash}{ef53f680ae17f18d68fc5be6c56a7a05}
+      \strng{fullhash}{ef53f680ae17f18d68fc5be6c56a7a05}
+      \strng{fullhashraw}{ef53f680ae17f18d68fc5be6c56a7a05}
+      \strng{bibnamehash}{ef53f680ae17f18d68fc5be6c56a7a05}
+      \strng{authorbibnamehash}{ef53f680ae17f18d68fc5be6c56a7a05}
+      \strng{authornamehash}{ef53f680ae17f18d68fc5be6c56a7a05}
+      \strng{authorfullhash}{ef53f680ae17f18d68fc5be6c56a7a05}
+      \strng{authorfullhashraw}{ef53f680ae17f18d68fc5be6c56a7a05}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Management Science}
+      \field{title}{A New Product growth for Model Consumer Durables}
+      \field{volume}{15}
+      \field{year}{1969}
+      \field{pages}{215\bibrangedash 227}
+      \range{pages}{13}
+      \verb{urlraw}
+      \verb https://pdodds.w3.uvm.edu/files/papers/others/1969/bass1969a.pdf
+      \endverb
+      \verb{url}
+      \verb https://pdodds.w3.uvm.edu/files/papers/others/1969/bass1969a.pdf
+      \endverb
+    \endentry
+    \entry{PakistanEPI}{report}{}{}
+      \name{author}{1}{}{%
+        {{hash=4d80fee324beae9ffdba25d0c6dd0a75}{%
+           family={{Government of Pakistan}},
+           familyi={G\bibinitperiod}}}%
+      }
+      \list{institution}{2}{%
+        {Ministry of National Health Services, Regulations}%
+        {Coordination}%
+      }
+      \strng{namehash}{4d80fee324beae9ffdba25d0c6dd0a75}
+      \strng{fullhash}{4d80fee324beae9ffdba25d0c6dd0a75}
+      \strng{fullhashraw}{4d80fee324beae9ffdba25d0c6dd0a75}
+      \strng{bibnamehash}{4d80fee324beae9ffdba25d0c6dd0a75}
+      \strng{authorbibnamehash}{4d80fee324beae9ffdba25d0c6dd0a75}
+      \strng{authornamehash}{4d80fee324beae9ffdba25d0c6dd0a75}
+      \strng{authorfullhash}{4d80fee324beae9ffdba25d0c6dd0a75}
+      \strng{authorfullhashraw}{4d80fee324beae9ffdba25d0c6dd0a75}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{National EPI Policy and Strategic Guidelines}
+      \field{year}{2014}
+      \verb{urlraw}
+      \verb https://lmis.gov.pk/docs/National_epi_policy_and_strategic_guidelines_pakistan_2014.pdf
+      \endverb
+      \verb{url}
+      \verb https://lmis.gov.pk/docs/National_epi_policy_and_strategic_guidelines_pakistan_2014.pdf
+      \endverb
+    \endentry
+    \entry{Granovetter78}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=8e87ebad79af69a33e0af51b6f2e1def}{%
+           family={Granovetter},
+           familyi={G\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{8e87ebad79af69a33e0af51b6f2e1def}
+      \strng{fullhash}{8e87ebad79af69a33e0af51b6f2e1def}
+      \strng{fullhashraw}{8e87ebad79af69a33e0af51b6f2e1def}
+      \strng{bibnamehash}{8e87ebad79af69a33e0af51b6f2e1def}
+      \strng{authorbibnamehash}{8e87ebad79af69a33e0af51b6f2e1def}
+      \strng{authornamehash}{8e87ebad79af69a33e0af51b6f2e1def}
+      \strng{authorfullhash}{8e87ebad79af69a33e0af51b6f2e1def}
+      \strng{authorfullhashraw}{8e87ebad79af69a33e0af51b6f2e1def}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{The American Journal of Sociology}
+      \field{number}{6}
+      \field{title}{Threshold Models of Collective Behavior}
+      \field{volume}{83}
+      \field{year}{1978}
+      \field{pages}{1420\bibrangedash 1443}
+      \range{pages}{24}
+    \endentry
+    \entry{HATCH}{dataset}{}{}
+      \name{author}{4}{}{%
+        {{hash=fa48a8bcc08c9a1d3ec2a908dac94b56}{%
+           family={Nemet},
+           familyi={N\bibinitperiod},
+           given={G.},
+           giveni={G\bibinitperiod}}}%
+        {{hash=99a34948cbad5191e9f18d5fef2f8233}{%
+           family={Greene},
+           familyi={G\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+        {{hash=7a140fa2b37a68d002404aef6feb418a}{%
+           family={Zaiser},
+           familyi={Z\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=8d1827d1c0e53b065d9895f8d6fd748e}{%
+           family={Hammersmith},
+           familyi={H\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Zenodo}%
+      }
+      \strng{namehash}{1be2318eea54e1d9737fb27be4b2ac70}
+      \strng{fullhash}{3e1eaf93d4d72a38b87dd5385094028c}
+      \strng{fullhashraw}{3e1eaf93d4d72a38b87dd5385094028c}
+      \strng{bibnamehash}{1be2318eea54e1d9737fb27be4b2ac70}
+      \strng{authorbibnamehash}{1be2318eea54e1d9737fb27be4b2ac70}
+      \strng{authornamehash}{1be2318eea54e1d9737fb27be4b2ac70}
+      \strng{authorfullhash}{3e1eaf93d4d72a38b87dd5385094028c}
+      \strng{authorfullhashraw}{3e1eaf93d4d72a38b87dd5385094028c}
+      \field{sortinit}{N}
+      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{10}
+      \field{title}{Historical Adoption of Technologies (HATCH) Dataset}
+      \field{year}{2023}
+      \verb{doi}
+      \verb 10.5281/zenodo.10231865
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.5281/zenodo.10231865
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.5281/zenodo.10231865
+      \endverb
+    \endentry
+    \entry{Runge}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=dc3420a9d2069b0b34fb0756b1b7f926}{%
+           family={Runge},
+           familyi={R\bibinitperiod},
+           given={C.},
+           giveni={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{dc3420a9d2069b0b34fb0756b1b7f926}
+      \strng{fullhash}{dc3420a9d2069b0b34fb0756b1b7f926}
+      \strng{fullhashraw}{dc3420a9d2069b0b34fb0756b1b7f926}
+      \strng{bibnamehash}{dc3420a9d2069b0b34fb0756b1b7f926}
+      \strng{authorbibnamehash}{dc3420a9d2069b0b34fb0756b1b7f926}
+      \strng{authornamehash}{dc3420a9d2069b0b34fb0756b1b7f926}
+      \strng{authorfullhash}{dc3420a9d2069b0b34fb0756b1b7f926}
+      \strng{authorfullhashraw}{dc3420a9d2069b0b34fb0756b1b7f926}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Mathematische Annalen}
+      \field{number}{2}
+      \field{title}{Ueber Die Numerische Auflösung Von Differentialgleichungen}
+      \field{volume}{46}
+      \field{year}{1895}
+      \field{pages}{167\bibrangedash 178}
+      \range{pages}{12}
+    \endentry
+    \entry{DifferentialEvolution}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=bd50f65dfed85bdaf3ee17cbcf93bc17}{%
+           family={Storn},
+           familyi={S\bibinitperiod},
+           given={R.},
+           giveni={R\bibinitperiod}}}%
+        {{hash=8424664b02a0affd56cd01bcc1ce7cb0}{%
+           family={Price},
+           familyi={P\bibinitperiod},
+           given={K.},
+           giveni={K\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Kluwer Academic Publishers}%
+      }
+      \strng{namehash}{ae65b8b24e4dd63294e58afa2684c7be}
+      \strng{fullhash}{ae65b8b24e4dd63294e58afa2684c7be}
+      \strng{fullhashraw}{ae65b8b24e4dd63294e58afa2684c7be}
+      \strng{bibnamehash}{ae65b8b24e4dd63294e58afa2684c7be}
+      \strng{authorbibnamehash}{ae65b8b24e4dd63294e58afa2684c7be}
+      \strng{authornamehash}{ae65b8b24e4dd63294e58afa2684c7be}
+      \strng{authorfullhash}{ae65b8b24e4dd63294e58afa2684c7be}
+      \strng{authorfullhashraw}{ae65b8b24e4dd63294e58afa2684c7be}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Global Optimization}
+      \field{title}{Differential Evolution -- A Simple and Efficient Heuristic for Global Optimization over Continuous Spaces}
+      \field{volume}{11}
+      \field{year}{1997}
+      \field{pages}{341\bibrangedash 359}
+      \range{pages}{19}
+    \endentry
+    \entry{Ye24}{incollection}{}{}
+      \name{author}{2}{}{%
+        {{hash=23a3c1e485bc87fafb4eb0ebf5116f7c}{%
+           family={Ye},
+           familyi={Y\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+        {{hash=0002a8c58065f2e353bde5a14ebb8f34}{%
+           family={Zino},
+           familyi={Z\bibinitperiod},
+           given={L.},
+           giveni={L\bibinitperiod}}}%
+      }
+      \name{editor}{1}{}{%
+        {{hash=205e6ba2db1736152fdb1a5595625947}{%
+           family={Sriraman},
+           familyi={S\bibinitperiod},
+           given={B.},
+           giveni={B\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{717228677a25b2ce03082edff2ecd14d}
+      \strng{fullhash}{717228677a25b2ce03082edff2ecd14d}
+      \strng{fullhashraw}{717228677a25b2ce03082edff2ecd14d}
+      \strng{bibnamehash}{717228677a25b2ce03082edff2ecd14d}
+      \strng{authorbibnamehash}{717228677a25b2ce03082edff2ecd14d}
+      \strng{authornamehash}{717228677a25b2ce03082edff2ecd14d}
+      \strng{authorfullhash}{717228677a25b2ce03082edff2ecd14d}
+      \strng{authorfullhashraw}{717228677a25b2ce03082edff2ecd14d}
+      \strng{editorbibnamehash}{205e6ba2db1736152fdb1a5595625947}
+      \strng{editornamehash}{205e6ba2db1736152fdb1a5595625947}
+      \strng{editorfullhash}{205e6ba2db1736152fdb1a5595625947}
+      \strng{editorfullhashraw}{205e6ba2db1736152fdb1a5595625947}
+      \field{sortinit}{Y}
+      \field{sortinithash}{fd67ad5a9ef0f7456bdd9aab10fe1495}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Handbook of Visual, Experimental and Computational Mathematics}
+      \field{title}{Data-informed modeling of the formation, persistence, and evolution of social norms and conventions}
+      \field{year}{2023}
+    \endentry
+    \entry{Zino23}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=0002a8c58065f2e353bde5a14ebb8f34}{%
+           family={Zino},
+           familyi={Z\bibinitperiod},
+           given={L.},
+           giveni={L\bibinitperiod}}}%
+        {{hash=23a3c1e485bc87fafb4eb0ebf5116f7c}{%
+           family={Ye},
+           familyi={Y\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{0e4b83156e0b67b95fdb463bec609c71}
+      \strng{fullhash}{0e4b83156e0b67b95fdb463bec609c71}
+      \strng{fullhashraw}{0e4b83156e0b67b95fdb463bec609c71}
+      \strng{bibnamehash}{0e4b83156e0b67b95fdb463bec609c71}
+      \strng{authorbibnamehash}{0e4b83156e0b67b95fdb463bec609c71}
+      \strng{authornamehash}{0e4b83156e0b67b95fdb463bec609c71}
+      \strng{authorfullhash}{0e4b83156e0b67b95fdb463bec609c71}
+      \strng{authorfullhashraw}{0e4b83156e0b67b95fdb463bec609c71}
+      \field{sortinit}{Z}
+      \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IFAC-PapersOnLine}
+      \field{number}{2}
+      \field{title}{On Incentivizing Innovation Diffusion in a Network of Coordinating Agents}
+      \field{volume}{56}
+      \field{year}{2023}
+      \field{pages}{4186\bibrangedash 4191}
+      \range{pages}{6}
+      \verb{urlraw}
+      \verb https://www.sciencedirect.com/science/article/pii/S2405896323021754
+      \endverb
+      \verb{url}
+      \verb https://www.sciencedirect.com/science/article/pii/S2405896323021754
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
