@@ -53,18 +53,19 @@
 	\listoftodos
 	
 	\section{Introduction}
-	innovation diffusion is a field of mathematical modeling that has been largely studied in the past, and many models have been created to model these types of process.
+	Innovation diffusion is a field of mathematical modeling that has been extensively studied in the past, and many models have been created to model these types of processes.
 	
 	These different models describe the process of innovation diffusion on different levels of detail, with a greater or a lesser focus on the concrete decision process of the individual, and with different approaches to the general type of model used.
 	
-	This work aims to analyze the advantages and disadvantages these different models have for different uses of innovation diffusion modeling. The models analyzed are described mainly in the work of Ye and Zeno on the topic \autocite{Ye24}, in which the most important models are laid out. This paper in large part inspired this work. 
+	This work aims to analyze the advantages and disadvantages these different models have for different uses of innovation diffusion modeling. The models analyzed are mainly described in the work of Ye and Zeno on the topic \autocite{Ye24}, in which the most important models are laid out. This paper in large part inspired this work. 
 	
 	I am personally fascinated by the topic of innovation diffusion due to its huge variety of mathematical approaches, as well as its direct relation to real life. I additionally find it interesting to see how well the predictions of certain innovation diffusion Models are quite directly visible in everyday life; whenever a piece of information is spreading in a group of people, even when it only consists of a few individuals, one can quite easily observe all processes described by the mathematical model and how they actually influence decision process. In general, the persistence of mathematical patterns in human behavior is very interesting in my opinion, as they reveal how strongly collective human behavior follows mathematical patterns, which we oftentimes do not realize.
 	
 	This strong occurrence of innovation diffusion theory is also the main reason for the relevance of this field of mathematics. Due to the theory of innovation diffusion being a quite generic theory, the applications of it range from fields like Sociology to economy, politics and many others.
 	
 	In the following, I will first give a short theoretical introduction to some mathematical methods used to model innovation diffusion. Then, I will describe the three models of innovation diffusion that I will compare in this work, namely the Bass Diffusion model, a modified version of the Linear Threshold Model and a Game-Theoretic Model, and explain in detail how each of the models approaches the topic of innovation diffusion. Pseudocode for the implementation of the models as well as the GitHub repository with the Python code can be found in appendix \ref{app:Scripts}. After that, I will fit each of the models to a real dataset, and will compare how well they manage to describe the innovation process and how consistently they can be used.
-	\todo{which dataset was used?}
+	Finally, I will answer the following research question:
+	\textit{To what extent are the Bass Diffusion Model, the Linear Threshold Model, and the Game-Theoretic Model suitable for modelling real-world innovation diffusion, considering their computational efficiency, interpretability, and predictive capabilities?} 
 	
 	\section{Theoretical Basis}
 	\subsection{Networks} \label{sec:NetworksBasis}
@@ -112,7 +113,7 @@
 	
 	\subsection{Differential Equations}
 	When describing systems that change dynamically over time, Differential Equations (DEs) are oftentimes a helpful mathematical tool, as they can predict how a system will change in an infinitesimally small time-step, given only the state of the system in the current time-step. 
-	The Bass Diffusion Model is based on a Differential Equation (DE). A DE is an equation that relates a function to its own derivatives. When only the first derivative of the function and the function itself appear in the DE, it is called a \textit{first-order Differential Equation}. The Bass Diffusion Model is such a first-order Differential Equation \autocite{Bass69}. Since time is the only independent variable in the Bass Diffusion Model, the equation describing it is a so-called Ordinary Differential Equation (ODE).
+	The Bass Diffusion Model is based on a Differential Equation (DE). A DE is an equation that relates a function to its own derivatives. When only the first derivative of the function and the function itself appears in the DE, it is called a \textit{first-order Differential Equation}. The Bass Diffusion Model is such a first-order Differential Equation \autocite{Bass69}. Since time is the only independent variable in the Bass Diffusion Model, the equation describing it is a so-called Ordinary Differential Equation (ODE).
 	
 	DEs generally do not have solutions that can be expressed in closed form. If this is the case, their solutions can only be evaluated numerically with a given initial condition using algorithms such as the Runge-Kutta Method \autocite{Runge}. While the Bass Diffusion model does have a closed form solution (see section \ref{sec:BassModel} for the derivation), I implemented it with a numerical algorithm for simplicity.
 	
@@ -151,7 +152,7 @@
 		\int \frac{d\zeta}{(1-\zeta)(p+q\zeta)} = t.
 	\end{equation}
 	
-	The Integral on the left-hand side of the equation can be rewritten by using partial fraction composition on the integrand:
+	The Integral on the left-hand side of the equation can be rewritten by using partial fraction decomposition on the integrand:
 	
 	\begin{equation*}
 		\begin{split}
@@ -210,6 +211,7 @@
 	\begin{equation}
 		\boxed{\zeta(t) = \frac{e^{(p+q)t}C-p}{e^{(p+q)t}C+q}}.
 	\end{equation}
+	\todo{C in terms of y(0)}
 	
 	This function produces an S-shaped curve \todo{not accurate}, with the parameters $p$ and $q$ determining how exactly the curve is shaped. Roughly speaking, $p$ controls the steepness of the curve at its beginning, while $q$ controls the steepness at the end \todo{fix this}. Figures \ref{fig:bassfixedp} and \ref{fig:bassfixedq} visualise the effect of the parameters on the diffusion curve.
 	
@@ -241,9 +243,9 @@
 	
 	This is the most basic Linear Threshold Model, described by Granovetter \autocite{Granovetter78}. I did a few minor modifications to the model, in order to make it more practical for the specific purpose of fitting the curve to a dataset, as described in section \ref{sec:dataFitting}.
 	
-	The main way in which my Model differs from the one described by Granovetter \autocite{Granovetter78}is that it does not update all nodes at every time-step. Instead, I defined a parameter $p \in [0; 1]$ called the \textit{update probability}, which is the probability that a node will update at a certain time-step. The reason for this is to mirror the fact that people do not realistically re-evaluate their decisions as often as the model assumes. It also makes the models predictions more consistent and makes it easier and more intuitive to control how many time-steps the diffusion process should last.
+	The main way in which my Model differs from the one described by Granovetter \autocite{Granovetter78}is that it does not update all nodes at every time-step. Instead, I defined a parameter $p \in [0; 1]$ called the \textit{update probability}, which is the probability that a node will update at a certain time-step. The reason for this is to mirror the fact that people do not realistically re-evaluate their decisions as often as the model assumes. It also makes the model's predictions more consistent and makes it easier and more intuitive to control how many time-steps the diffusion process should last.
 	
-	In practice, it is not possible to assign the thresholds to each node manually, so they have to be sampled randomly. This is why in my model the thresholds are sampled from a normal distribution with a mean $\mu$ and a standard deviation $\sigma$ \todo{explain truncated normal distribution}. One problem with this is that a normal distribution allows outputs that are negative or greater than 1, while $\theta_i$ has to lie between 0 and 1. I fixed this issue by forcing the node to re-evaluate its threshold in the initialization phase of the simulation until a value between 0 and 1 is reached.
+	In practice, it is not possible to assign the thresholds to each node manually, so they have to be sampled randomly. This is why in my model the thresholds are sampled from a normal distribution with a mean $\mu$ and a standard deviation $\sigma$ \todo{explain truncated normal distribution}. One problem with this is that a normal distribution allows outputs that are negative or greater than 1, while $\theta_i$ has to lie between 0 and 1. I fixed this issue by forcing the node to re-evaluate its threshold in the initialization phase of the simulation until a value between 0 and 1 is reached. This means that the final distribution used for the threshold evaluation is actually a so-called \textit{truncated normal distribution}. One important consequence of this is that the parameters $\mu$ and $\sigma$ are the mean and standard deviation of the original gaussian, \textit{not} of the actual threshold distribution.
 	
 	The specific implementation I used works as follows:
 	
@@ -294,8 +296,8 @@
 	
 	
 	
-	\subsubsection{Update Rule 1: Coordination-Games}
-	When following the first update rule, the individuals will engage in a two-player coordination game with their neighbours. The node will decide which it will decide whether or not to adopt the other node's state according to a payoff matrix.
+	\subsubsection{Update Rule 1: Coordination Games}
+	When following the first update rule, the individuals will engage in a two-player coordination game with their neighbours. The node will decide whether or not to adopt the other node's state according to a payoff matrix.
 	
 	Recall the definition of the generic payoff matrix introduced in section \ref{sec:payoff}:
 	
@@ -316,7 +318,7 @@
 	
 	$$\mathbf{x}_i(t+1) = \underset{k \in \{0; 1\}}{\arg \max}(\pi_i(x_i = k)).$$
 	
-	This means that the Agent will always simply choose its next state such that the payoff $\pi_i$ received for the choice is as big as possible.
+	This means that the Agent will always simply choose its next state such that the payoff $\pi_i$ received for the choice is maximised.
 	
 	The payoff matrix I used for my analysis was proposed by Zino et al. \autocite{Zino23}. It simplifies the model by writing the payoff matrix as
 	
@@ -370,8 +372,10 @@
 	\section{Data Fitting} \label{sec:dataFitting}
 	
 	\subsection{The Dataset}
-	The dataset I used to fit the models to comes from a collection of datasets about the Adoption of new technologies on a global scale, called HATCH (short for of Historical Adoption of Technologies) \autocite{HATCH}. HATCH contains a large number of datasets describing the adoption of different technologies in various regions and countries all over the globe. The specific dataset I used to fit the models is the percentage of the population of Pakistan with the BCG vaccination (a vaccination against tuberculosis), from 1980 to 1989. This specific dataset was provided by UNICEF and has the identifier \texttt{BCG Vaccine\textunderscore Share of Population\textunderscore PK} in the file \texttt{HATCH\textunderscore v1.5\textunderscore Clean.csv} (entry number 1895). There are several reasons for why I chose this specific dataset, the first one being that the adoption process described by the data set is one where the decision to adopt the innovation is actually made by individuals. While Pakistan did initiate an Immunization policy in the year 1978, the vaccine was not mandatory, and the people hat to decide individually whether or not to get the vaccination \autocite{PakistanEPI}. Still, one should consider that it might not be the case that everyone had access to the vaccine. But since the curve does still show the general S-shape of an adoption curve, it is somewhat reasonable to assume that the decision to accept the innovation was made freely at an individual level. Another reason for why this dataset is so useful for this analysis is that the fraction of adopters starts out very low at only $6\%$, but ends at $88\%$ This means that the adoption curve is rather steep, which makes the dataset suitable for the type of growth the three models predict. Since the fraction of adopters reaches a plateau after the year 1990, I chose not to include any datapoints after this year.
+	The dataset I used to fit the models to comes from a collection of datasets about the spread of new technologies in the US, supplied by "Our World in Data" \autocite{datasetDiffusion}. The used the dataset about the fraction of US households owning a refrigerator, labelled \texttt{Refrigerator} in the dataset collection. The dataset contains data from 1920 to 2017 \todo{check}, but I only used the data from 1925 to 1980 \todo{check}, since a plateau is already reached roughly around 1960. It should be noted that every node in the simulation of the LTM and Game-Theoretic Model will represent a single household, not an individual.
+	There are several reasons for why I chose this specific dataset. First of all, the data shows a very clear adoption curve, with the adopter fraction starting at 0.01 in 1925 and reaching a plateau at 0.99. Another reason for why this dataset is well-suited for this analysis since the decision whether or not to buy a refrigerator is actually made by the households themselves in most cases, and social influences can be assumed to contribute to this decision.
 	
+	\subsection{The Optimisation Algorithm}
 	Every one of the three models has a certain set of parameters, or inputs, that determine the prediction it makes. When fitting a specific model to the dataset, the idea is to find the optimal values for these three parameters such that the model's output aligns with the dataset as closely as possible. To find these optimal parameters, I used the \texttt{differential\textunderscore evolution} optimisation algorithm from the Python package \texttt{scipy}, with a mean-squared error function.
 	
 	What this means is that the model is initialized with random parameters, and given an error score, which rates how well the model predicted the dataset. This score is evaluated as follows:
@@ -388,6 +392,26 @@
 		\item \texttt{tol}: the \textit{tolerance} of the algorithm. The smaller this number is, the closer the algorithm will try to get to the dataset. This value was always set to 0.001. \todo{WRONG: explain tol}
 	\end{itemize} 
 	
+	\subsection{The Bass Diffusion Model}
+	The Bass Diffusion model was the easiest model to optimise, since it only has two parameters and runs extremely quickly. The optimisation for the Bass model was run with the bounds
+	
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|c|c|c|}
+			\hline
+			parameter & minimum & maximum \\ \hline
+			$p$       & 0.0001  & 1       \\ \hline
+			$q$       & 0.0001  & 1       \\ \hline
+		\end{tabular}
+	\end{table}
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.8\textwidth]{Bass_fit}
+		\caption{Output of the Bass Diffusion Model fitting the dataset.}
+		\label{fig:pred-Bass}
+	\end{figure}
+	
 	\subsection{The Linear Threshold Model} \label{LTM-dataFitting}
 	For the data fitting, the thresholds were again sampled from a normal distribution that is the same for all nodes, as described in Section \ref{sec:LinearThreshold}. The number of Agents was fixed to 500, since this is the largest network which my computer could simulate reasonably fast. After manually experimenting with the parameter $d$, I found that a value of 10 produced good results. There were three parameters that I optimized, namely the standard deviation $\sigma$ and the mean $\mu$ of the distribution, as well as the update probability $p$. I used the following ranges for the optimisation algorithm:
 	
@@ -396,43 +420,64 @@
 		\begin{tabular}{|c|c|c|}
 			\hline
 			parameter & minimum & maximum \\ \hline
-			$\mu$     & 0.001   & 0.6     \\ \hline
-			$\sigma$  & 0.001   & 0.6     \\ \hline
-			$p$       & 0.001   & 0.3     \\ \hline
+			$\mu$     & 0.001   & 0.8     \\ \hline
+			$\sigma$  & 0.001   & 0.3     \\ \hline
+			$p$       & 0.001   & 0.6     \\ \hline
 		\end{tabular}
 	\end{table}
 	
 	\subsection{The Game-Theoretic Model} \label{sec:fitting-GTM}
 	
-	The Game-Theoretic model was considerably harder to optimise than the Linear Threshold Model, mainly because the relative advantage $\alpha$ can take any value from 0 to infinity. This means that I had to find the approximate upper bound manually through a trial-and-error process. I eventually arrived at the conclusion that an $\alpha$ value between 1 and 4 would produce a stable result with the correct values for $p$ and $s$. This led me to the following bounds:
+	The Game-Theoretic model was considerably harder to optimise than the Linear Threshold Model, mainly because the relative advantage $\alpha$ can take any value from 0 to infinity. This means that I had to find the approximate upper bound manually through a trial-and-error process. I eventually arrived at the conclusion that an $\alpha$ value between 0 and 2 would produce a consistent result with the correct values for $p$ and $s$. This led me to the following bounds:
 	
 	\begin{table}[H]
 		\centering
 		\begin{tabular}{|c|c|c|}
 			\hline
-			parameter & minimum & maximum \\ \hline
-			$\alpha$  & 1.0      & 4.0     \\ \hline
+			parameter & minimum  & maximum \\ \hline
+			$\alpha$  & 0.0      & 2.0     \\ \hline
 			$s$       & 0.1      & 0.3     \\ \hline
 			$p$       & 0.001    & 0.4     \\ \hline
 		\end{tabular}
 	\end{table}
-	
+		
 	\section{Results}
-	This section concerns itself with the general characteristics of each model. The models will be investigated mainly with respect to how easy or practical they are to use, which errors or complications they produce, and for which populations they produce a viable result.
+	This section concerns itself with the general characteristics of each model. The models will be investigated mainly with respect to how easy or practical they are to use, which errors or complications they produce, and for which populations they produce a viable 
+	result.
 	
-	\subsection{The Linear Threshold Model} \label{LTM_results}
-	Optimising the LTM to the dataset yielded a minimum of the MSE score with the following parameters:
+	\subsection{The Bass Diffusion Model}
+	The optimal parameters for the Bass Diffusion model are
 	
 	\begin{table}[H]
 		\centering
-		\begin{tabular}{|c|c|c|c|}
+		\begin{tabular}{|c|c|}
 			\hline
-			$p$ & $\mu$ & $\sigma$ & MSE error (average) \\ \hline
-			0.226 & 0.085  & 0.054     & 0.004            \\ \hline
+			$p$ & $q$     \\ \hline
+			0.023 & 0.123 \\ \hline
+		\end{tabular}
+		\caption{Optimal parameters for the Bass Diffusion Model}
+		\label{tab:paramsBass}
+	\end{table}
+	
+	
+	
+	\subsection{The Linear Threshold Model} \label{LTM_results}
+	Optimising the LTM to the dataset yielded a minimum of the MSE score with the following parameters: 
+	
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|c|c|c|}
+			\hline
+			$p$ & $\mu$ & $\sigma$ \\ \hline
+			0.226 & 0.085  & 0.054 \\ \hline
 		\end{tabular}
 		\caption{Optimal parameters for the LTM}
 		\label{tab:paramsLTM}
-	\end{table} \todo{explain "average MSE"}
+	\end{table}
+	
+	The low value of $\mu$ means that the individuals are required to accept the innovation quite easily in order for the model to produce a curve that fits the dataset closely.
+	
+	It should be noted that the average MSE error is the average of the errors for each run. The same is true for the Game-Theoretic Model in the next section.
 	
 	One big issue I encountered when running the LTM with these parameters is that the results vary quite strongly. This was, however, fixed by introducing the update probability $p$ described in section \ref{sec:LinearThreshold}. Still, randomness is part of the model, so I ran the model 50 times with the same parameters and used the average of all the resulting curves to get the final value for the average error of the model. This process is visualised in figure \ref{fig:pred-LTM}, where the gray curves are the actual runs of the model, while the orange line is the average.
 	
@@ -440,8 +485,8 @@
 	
 	\begin{figure}[H]
 		\centering
-		\includegraphics[width=0.8\textwidth]{LTM_vaccinePakistan}
-		\caption{Averaged outputs of the LTM predicting the \texttt{BCG Vaccine\textunderscore Share of Population\textunderscore PK} dataset.}
+		\includegraphics[width=0.8\textwidth]{LTM_fit}
+		\caption{Averaged outputs of the LTM fitting the dataset.}
 		\label{fig:pred-LTM}
 	\end{figure}
 	
@@ -451,10 +496,10 @@
 	
 	\begin{table}[H]
 		\centering
-		\begin{tabular}{|c|c|c|c|}
+		\begin{tabular}{|c|c|c|}
 			\hline
-			$p$ & $\alpha$ & $s$ & MSE error (average) \\ \hline
-			0.212 & 3.574  & 0.285     & 0.006         \\ \hline
+			$p$ & $\alpha$ & $s$   \\ \hline
+			0.111 & 1.305  & 0.348 \\ \hline
 		\end{tabular}
 		\caption{Optimal parameters for the Game-Theoretic Model}
 		\label{tab:paramsGTM}
@@ -463,13 +508,24 @@
 	
 	\begin{figure}[H]
 		\centering
-		\includegraphics[width=1\linewidth]{../graphs/GTM_vaccinePakistan}
+		\includegraphics[width=1\linewidth]{../graphs/GTM_fit}
 		\caption{Averaged outputs of the Game-Theoretic Model predicting the \texttt{BCG Vaccine\textunderscore Share of Population\textunderscore PK} dataset.}
 		\label{fig:pred-GTM}
 	\end{figure}
 	
 	\section{Comparison}
-	One big difference between the three models is the complexity with which the decision process of the individual is modelled. The advantage of a more complex modelling is that the model has the ability to reveal more detailed information about the diffusion process, such as, in the case of the Game-Theoretic model described in section \ref{sec:GTM}, how sensitive the people are to emerging trends. Added complexity does however come with its disadvantages, too. Mainly, models become harder to tune intuitively; this can be seen especially well when comparing the Game-Theoretic model to The Bass Diffusion Model. The latter does not model the decision process of the individual at all, while the focuses strongly on this process. As explained in section \ref{sec:BassModel}, the two parameters of the Bass Diffusion model influence the resulting curve in a very intuitive manner. For the Game-Theoretic Model, on the other hand, the connection between the parameters and the predicted curve is far less intuitive. \todo{finish the section}
+	The three models will be compared with respect to the following aspects:
+	\begin{itemize}
+		\item \textit{Fitting accuracy:} How well could each model fit the data?
+		\item \textit{Computational efficiency:} How efficient are the models computationally?
+		\item \textit{Realism:} How realistic are the assumption of each model?
+		\item \textit{Interpretability:} How well can the parameters of the models be interpreted?
+		\item \textit{Modelling capabilities:} Which adoption processes can the models describe?
+	\end{itemize}
+	
+	\section{Discussion}
+	\subsection{Limits}
+	While the dataset used for data fitting in section \ref{sec:dataFitting} does model a general diffusion process, there are some factors contributing to the curve of the data that the models do not account for. The models assume that the decision to buy a refrigerator is only influenced by the social environment of the household in question, while factors such as the affordability of refrigerators are ignored.
 	
 	\section{Outlook}
 	\todo[inline]{Summary, final fazit, etc.}

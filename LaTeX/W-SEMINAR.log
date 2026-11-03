@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.11.2)  2 NOV 2026 19:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.11.2)  3 NOV 2026 18:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1106,11 +1106,9 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
 \tf@tdo=\write8
 \openout8 = `W-SEMINAR.tdo'.
 
-Package hyperref Info: bookmark level for unknown todo defaults to 0 on input l
-ine 67.
 
 [3]
-Underfull \hbox (badness 1565) in paragraph at lines 109--109
+Underfull \hbox (badness 1565) in paragraph at lines 110--110
 []\T1/ptm/m/n/10.95 Figure 1: []An ex-am-ple of a small di-rected net-work, wit
 h the fol-low-ing prop-er-ties: $\OMS/ztmcm/m/n/10.95 V \OT1/ztmcm/m/n/10.95 =
  []
@@ -1120,43 +1118,49 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.121 	$$
-         \mathbf{P} =] [5]
+l.119 	
+       ]
+Package hyperref Info: bookmark level for unknown todo defaults to 0 on input l
+ine 130.
+ [5]
 
 LaTeX Warning: Marginpar on page 6 moved.
 
-<../graphs/Bass_fixed_p.png, id=199, 722.7pt x 722.7pt>
+
+LaTeX Warning: Marginpar on page 6 moved.
+
+<../graphs/Bass_fixed_p.png, id=224, 722.7pt x 722.7pt>
 File: ../graphs/Bass_fixed_p.png Graphic file (type png)
 <use ../graphs/Bass_fixed_p.png>
-Package pdftex.def Info: ../graphs/Bass_fixed_p.png  used on input line 218.
+Package pdftex.def Info: ../graphs/Bass_fixed_p.png  used on input line 220.
 (pdftex.def)             Requested size: 443.57848pt x 443.58118pt.
 [6]
-<../graphs/Bass_fixed_q.png, id=208, 722.7pt x 722.7pt>
+<../graphs/Bass_fixed_q.png, id=231, 722.7pt x 722.7pt>
 File: ../graphs/Bass_fixed_q.png Graphic file (type png)
 <use ../graphs/Bass_fixed_q.png>
-Package pdftex.def Info: ../graphs/Bass_fixed_q.png  used on input line 225.
+Package pdftex.def Info: ../graphs/Bass_fixed_q.png  used on input line 227.
 (pdftex.def)             Requested size: 443.57848pt x 443.58118pt.
  [7
 pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.229 	
+l.231 	
         <../graphs/Bass_fixed_p.png>] [8
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.241 	
+l.243 	
         <../graphs/Bass_fixed_q.png>] [9{c:/texlive/2026/texmf-dist/fonts/enc/d
 vips/cm-super/cm-super-t1.enc}
 pdfTeX warning (ext4): destination with the same identifier (name{table.1}) has
  been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.281 	
+l.283 	
        ] [10]
-Underfull \hbox (badness 10000) in paragraph at lines 343--347
+Underfull \hbox (badness 10000) in paragraph at lines 345--349
 
  []
 
@@ -1165,98 +1169,117 @@ pdfTeX warning (ext4): destination with the same identifier (name{table.2}) has
  been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.374 	
+l.377 	
        ]
+
+LaTeX Warning: Marginpar on page 12 moved.
+
 LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 3
-86.
- (c:/texlive/2026/texmf-dist/tex/latex/psnfss/ts1ptm.fd
+90.
+(c:/texlive/2026/texmf-dist/tex/latex/psnfss/ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
-) [12]
-<../graphs/LTM_vaccinePakistan.png, id=271, 578.16pt x 505.89pt>
-File: ../graphs/LTM_vaccinePakistan.png Graphic file (type png)
-<use ../graphs/LTM_vaccinePakistan.png>
-Package pdftex.def Info: ../graphs/LTM_vaccinePakistan.png  used on input line 
-443.
-(pdftex.def)             Requested size: 354.86412pt x 310.5068pt.
- [13
-pdfTeX warning (ext4): destination with the same identifier (name{table.3}) has
- been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.447 	
-       ]
-<../graphs/GTM_vaccinePakistan.png, id=279, 578.16pt x 505.89pt>
-File: ../graphs/GTM_vaccinePakistan.png Graphic file (type png)
-<use ../graphs/GTM_vaccinePakistan.png>
-Package pdftex.def Info: ../graphs/GTM_vaccinePakistan.png  used on input line 
-466.
-(pdftex.def)             Requested size: 443.57848pt x 388.13159pt.
- [14
+)
+<../graphs/Bass_fit.png, id=285, 462.528pt x 346.896pt>
+File: ../graphs/Bass_fit.png Graphic file (type png)
+<use ../graphs/Bass_fit.png>
+Package pdftex.def Info: ../graphs/Bass_fit.png  used on input line 410.
+(pdftex.def)             Requested size: 354.86412pt x 266.16325pt.
+ [12] [13
 pdfTeX warning (ext4): destination with the same identifier (name{figure.4}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.470 	
+l.447 	
+        <../graphs/Bass_fit.png>]
+<../graphs/LTM_fit.png, id=303, 578.16pt x 505.89pt>
+File: ../graphs/LTM_fit.png Graphic file (type png)
+<use ../graphs/LTM_fit.png>
+Package pdftex.def Info: ../graphs/LTM_fit.png  used on input line 488.
+(pdftex.def)             Requested size: 354.86412pt x 310.5068pt.
+ [14
+pdfTeX warning (ext4): destination with the same identifier (name{table.3}) has
+ been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.492 	
        
 pdfTeX warning (ext4): destination with the same identifier (name{table.4}) has
  been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.470 	
-        <../graphs/LTM_vaccinePakistan.png>] [15
+l.492 	
+       ]
+<../graphs/GTM_fit.png, id=311, 578.16pt x 505.89pt>
+File: ../graphs/GTM_fit.png Graphic file (type png)
+<use ../graphs/GTM_fit.png>
+Package pdftex.def Info: ../graphs/GTM_fit.png  used on input line 511.
+(pdftex.def)             Requested size: 443.57848pt x 388.13159pt.
+ [15
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.477 	\newpage
-                <../graphs/GTM_vaccinePakistan.png>] [16]
-Overfull \hbox (5.62332pt too wide) in paragraph at lines 501--501
-[]|\T1/ptm/m/n/10.95 Symbol| 
- []
-
-Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 511.
-[17
+l.515 	
+       
 pdfTeX warning (ext4): destination with the same identifier (name{table.5}) has
  been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.537 	
+l.515 	
+        <../graphs/LTM_fit.png>] [16
+pdfTeX warning (ext4): destination with the same identifier (name{figure.6}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.529 	
+        <../graphs/GTM_fit.png>] [17]
+Overfull \hbox (5.62332pt too wide) in paragraph at lines 557--557
+[]|\T1/ptm/m/n/10.95 Symbol| 
+ []
+
+Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
+put line 567.
+[18
+pdfTeX warning (ext4): destination with the same identifier (name{table.6}) has
+ been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.593 	
        ]
-Overfull \hbox (1.57855pt too wide) in paragraph at lines 538--538
+Overfull \hbox (1.57855pt too wide) in paragraph at lines 594--594
 [][][]\T1/ptm/m/n/10.95 pseudocode 
  []
 
 
-Overfull \hbox (1.57855pt too wide) in paragraph at lines 538--538
+Overfull \hbox (1.57855pt too wide) in paragraph at lines 594--594
 [][][]\T1/ptm/m/n/10.95 pseudocode 
  []
 
-[18]
-Overfull \hbox (3.655pt too wide) in paragraph at lines 543--543
+[19]
+Overfull \hbox (3.655pt too wide) in paragraph at lines 599--599
 []\T1/ptm/m/n/10.95 L. Zino and M. Ye. ^^P  On In-cen-tiviz-ing In-no-va-tion D
 if-fu-sion in a Net-work of Co-or-di-nat-ing Agents^^Q.
  []
 
-[19] (./W-SEMINAR.aux)
+[20] (./W-SEMINAR.aux)
  ***********
 LaTeX2e <2026-11-01>
 L3 programming layer <2026-09-09>
  ***********
 Package rerunfilecheck Info: File `W-SEMINAR.out' has not changed.
-(rerunfilecheck)             Checksum: AAFBAF846577356628A814EF503817E0;3703.
+(rerunfilecheck)             Checksum: 62AF084A3C7B87F0461DC41BE4C3A786;4456.
 Package logreq Info: Writing requests to 'W-SEMINAR.run.xml'.
 \openout1 = `W-SEMINAR.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 31306 strings out of 466968
- 586972 string characters out of 5407725
- 1429843 words of memory out of 5000000
- 60207 multiletter control sequences out of 15000+600000
+ 31327 strings out of 466968
+ 587031 string characters out of 5407725
+ 1429934 words of memory out of 5000000
+ 60221 multiletter control sequences out of 15000+600000
  679949 words of font info for 108 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 107i,16n,108p,1976b,1659s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 107i,16n,108p,1513b,1659s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/tex
 live/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2026
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2026/texmf-dis
@@ -1268,10 +1291,10 @@ exlive/2026/texmf-dist/fonts/type1/urw/symbol/usyr.pfb><c:/texlive/2026/texmf-d
 ist/fonts/type1/urw/times/utmb8a.pfb><c:/texlive/2026/texmf-dist/fonts/type1/ur
 w/times/utmr8a.pfb><c:/texlive/2026/texmf-dist/fonts/type1/urw/times/utmri8a.pf
 b>
-Output written on W-SEMINAR.pdf (19 pages, 494788 bytes).
+Output written on W-SEMINAR.pdf (20 pages, 504867 bytes).
 PDF statistics:
- 396 PDF objects out of 1000 (max. 8388607)
- 339 compressed objects within 4 object streams
- 81 named destinations out of 1000 (max. 500000)
- 217 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 423 PDF objects out of 1000 (max. 8388607)
+ 363 compressed objects within 4 object streams
+ 88 named destinations out of 1000 (max. 500000)
+ 262 words of extra memory for PDF output out of 10000 (max. 10000000)
 

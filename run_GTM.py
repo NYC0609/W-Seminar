@@ -4,15 +4,12 @@ from icecream import ic
 import numpy as np
 from sklearn.metrics import mean_squared_error
 
-brfarmers = [6, 8, 12, 18, 50, 53, 56, 70, 73, 163, 169, 211, 228, 269, 333, 388, 452, 497, 540, 692]  # brfarmers dataset cumulative adopters
-kfamily = [69, 163, 244, 330, 395, 457, 510, 563, 636, 673, 1047]                                      # kfamily dataset cumulative adopters
-BCG_pakistan = [0.06,0.11,0.12,0.35,0.55,0.62,0.69,0.72,0.77,0.8]
-
-y_data = BCG_pakistan    # set the dataset to be used
+y_data = [0.01, 0.024, 0.043, 0.064, 0.094, 0.128, 0.171, 0.216, 0.247, 0.293, 0.342, 0.411, 0.494, 0.517, 0.56, 0.63, 0.72, 0.718, 0.709, 0.696, 0.675, 0.691, 0.712, 0.766, 0.792, 0.864, 0.867, 0.892, 0.904, 0.924, 0.941, 0.96, 0.973, 0.977, 0.98, 0.982, 0.983, 0.995, 0.991, 0.993, 0.995, 0.996, 0.997, 0.998, 0.998, 0.998, 0.998, 0.999, 0.999, 0.999, 0.999, 0.998, 0.997]
 fractions_data = y_data
 print(fractions_data)
 
-params =  [3.5744478189968265, 0.2854016348463292, 0.2115900542817224]
+params = [1.3047334590065103, 0.3477860886329542, 0.11141083105647628]
+print(1925+len(y_data))
 
 alpha = round(params[0], ndigits=3)
 sensitivity = round(params[1], ndigits=3)
@@ -44,7 +41,10 @@ plt.title(f'gtm with parameters alpha = {alpha}, trend sensitivity = {sensitivit
 
 plt.plot(range(len(y_data)), fractions_data, label='dataset')
 plt.plot(range(len(average_pred)), average_pred, label='averaged predictions')
-plt.xticks(range(len(fractions_data)), range(1980, 1980+len(fractions_data)))
+plt.xticks(
+    range(0, len(fractions_data), 5),
+    range(1925, 1925 + len(fractions_data), 5)
+)
 plt.xlabel('year')
 plt.ylabel('adopter fraction')
 plt.legend()

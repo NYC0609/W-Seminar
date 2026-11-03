@@ -7,17 +7,22 @@
 \contentsline {subsection}{\numberline {3.1}The Bass Diffusion Model}{5}{subsection.3.1}%
 \contentsline {subsection}{\numberline {3.2}The Linear Threshold Model}{8}{subsection.3.2}%
 \contentsline {subsection}{\numberline {3.3}Game-Theoretic Model}{10}{subsection.3.3}%
-\contentsline {subsubsection}{\numberline {3.3.1}Update Rule 1: Coordination-Games}{10}{subsubsection.3.3.1}%
+\contentsline {subsubsection}{\numberline {3.3.1}Update Rule 1: Coordination Games}{10}{subsubsection.3.3.1}%
 \contentsline {subsubsection}{\numberline {3.3.2}Update Rule 2: Trends}{11}{subsubsection.3.3.2}%
 \contentsline {section}{\numberline {4}Data Fitting}{11}{section.4}%
 \contentsline {subsection}{\numberline {4.1}The Dataset}{11}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}The Linear Threshold Model}{12}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}The Game-Theoretic Model}{13}{subsection.4.3}%
-\contentsline {section}{\numberline {5}Results}{13}{section.5}%
-\contentsline {subsection}{\numberline {5.1}The Linear Threshold Model}{13}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}The Game-Theoretic Model}{14}{subsection.5.2}%
-\contentsline {section}{\numberline {6}Comparison}{15}{section.6}%
-\contentsline {section}{\numberline {7}Outlook}{16}{section.7}%
-\contentsline {section}{\numberline {A}Appendix: symbols and naming conventions}{17}{appendix.A}%
-\contentsline {section}{\numberline {B}Appendix: Python scripts}{17}{appendix.B}%
-\contentsline {subsection}{\numberline {B.1}Linear Threshold model}{17}{subsection.B.1}%
+\contentsline {subsection}{\numberline {4.2}The Optimisation Algorithm}{12}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}The Bass Diffusion Model}{12}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}The Linear Threshold Model}{13}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}The Game-Theoretic Model}{13}{subsection.4.5}%
+\contentsline {section}{\numberline {5}Results}{14}{section.5}%
+\contentsline {subsection}{\numberline {5.1}The Bass Diffusion Model}{14}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}The Linear Threshold Model}{14}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}The Game-Theoretic Model}{15}{subsection.5.3}%
+\contentsline {section}{\numberline {6}Comparison}{16}{section.6}%
+\contentsline {section}{\numberline {7}Discussion}{17}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Limits}{17}{subsection.7.1}%
+\contentsline {section}{\numberline {8}Outlook}{17}{section.8}%
+\contentsline {section}{\numberline {A}Appendix: symbols and naming conventions}{18}{appendix.A}%
+\contentsline {section}{\numberline {B}Appendix: Python scripts}{18}{appendix.B}%
+\contentsline {subsection}{\numberline {B.1}Linear Threshold model}{18}{subsection.B.1}%

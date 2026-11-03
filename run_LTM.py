@@ -3,15 +3,12 @@ import matplotlib.pyplot as plt
 import numpy as np
 from sklearn.metrics import mean_squared_error
 
-brfarmers = [6, 8, 12, 18, 50, 53, 56, 70, 73, 163, 169, 211, 228, 269, 333, 388, 452, 497, 540, 692]  # brfarmers dataset cumulative adopters
-kfamily = [69, 163, 244, 330, 395, 457, 510, 563, 636, 673, 1047]                                      # kfamily dataset cumulative adopters
-BCG_pakistan = [0.06,0.11,0.12,0.35,0.55,0.62,0.69,0.72,0.77,0.8]                   # vaccine dataset percentages
 
-y_data = kfamily    # set the dataset to be used
-fractions_data = BCG_pakistan 
+y_data = [0.01, 0.024, 0.043, 0.064, 0.094, 0.128, 0.171, 0.216, 0.247, 0.293, 0.342, 0.411, 0.494, 0.517, 0.56, 0.63, 0.72, 0.718, 0.709, 0.696, 0.675, 0.691, 0.712, 0.766, 0.792, 0.864, 0.867, 0.892, 0.904, 0.924, 0.941, 0.96, 0.973, 0.977, 0.98, 0.982, 0.983, 0.995, 0.991, 0.993, 0.995, 0.996, 0.997, 0.998, 0.998, 0.998, 0.998, 0.999, 0.999, 0.999, 0.999, 0.998, 0.997]
+fractions_data = y_data 
 print(fractions_data)
 
-params: list[int] = [0.0847444644049907, 0.05433910381268331, 0.2259887339546392]
+params: list[int] = [0.02860161601432032, 0.10197594763793821, 0.10410558814968152]
 
 mean =  round(params[0], ndigits=3)
 stdev = round(params[1], ndigits=3)
@@ -36,16 +33,19 @@ plt.figure(figsize=(8,7))
 for i in range(len(outputs[0])):            # len(outputs[0]) corresponds to the number of iterations the model used
     s = 0
     for d in outputs:                       # for each dataset in the outputs array,
-        plt.plot(d, color='grey', alpha=0.01, linewidth=1)
+        plt.plot(d, color='grey', alpha=0.003, linewidth=1)
         s += d[i]                           # add the ith element of the array to a running total
     average_pred.append(s/len(outputs))     # divide the total by the length of the outputs array to get the average value for the ith iteration
 
 
 
-plt.title(f'LTM with parameters mean = {mean}, stdev = {stdev}, predicting the Pakistan Vaccine dataset. Average error: {round(np.average(errors), ndigits=3)}', wrap=True)
+plt.title(f'LTM with parameters mean = {mean}, stdev = {stdev}, fitting the refrigerator dataset. Average error: {round(np.average(errors), ndigits=3)}', wrap=True)
 plt.plot(range(len(fractions_data)), fractions_data, label='dataset')
 plt.plot(range(len(average_pred)), average_pred, label='average prediction')
-plt.xticks(range(len(fractions_data)), range(1980, 1980+len(fractions_data)))
+plt.xticks(
+    range(0, len(fractions_data), 5),
+    range(1925, 1925 + len(fractions_data), 5)
+)
 plt.xlabel('year')
 plt.ylabel('adopter fraction')
 plt.legend()

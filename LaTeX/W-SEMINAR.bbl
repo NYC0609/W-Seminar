@@ -80,37 +80,6 @@
       \verb https://pdodds.w3.uvm.edu/files/papers/others/1969/bass1969a.pdf
       \endverb
     \endentry
-    \entry{PakistanEPI}{report}{}{}
-      \name{author}{1}{}{%
-        {{hash=4d80fee324beae9ffdba25d0c6dd0a75}{%
-           family={{Government of Pakistan}},
-           familyi={G\bibinitperiod}}}%
-      }
-      \list{institution}{2}{%
-        {Ministry of National Health Services, Regulations}%
-        {Coordination}%
-      }
-      \strng{namehash}{4d80fee324beae9ffdba25d0c6dd0a75}
-      \strng{fullhash}{4d80fee324beae9ffdba25d0c6dd0a75}
-      \strng{fullhashraw}{4d80fee324beae9ffdba25d0c6dd0a75}
-      \strng{bibnamehash}{4d80fee324beae9ffdba25d0c6dd0a75}
-      \strng{authorbibnamehash}{4d80fee324beae9ffdba25d0c6dd0a75}
-      \strng{authornamehash}{4d80fee324beae9ffdba25d0c6dd0a75}
-      \strng{authorfullhash}{4d80fee324beae9ffdba25d0c6dd0a75}
-      \strng{authorfullhashraw}{4d80fee324beae9ffdba25d0c6dd0a75}
-      \field{sortinit}{G}
-      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{National EPI Policy and Strategic Guidelines}
-      \field{year}{2014}
-      \verb{urlraw}
-      \verb https://lmis.gov.pk/docs/National_epi_policy_and_strategic_guidelines_pakistan_2014.pdf
-      \endverb
-      \verb{url}
-      \verb https://lmis.gov.pk/docs/National_epi_policy_and_strategic_guidelines_pakistan_2014.pdf
-      \endverb
-    \endentry
     \entry{Granovetter78}{article}{}{}
       \name{author}{1}{}{%
         {{hash=8e87ebad79af69a33e0af51b6f2e1def}{%
@@ -138,57 +107,6 @@
       \field{year}{1978}
       \field{pages}{1420\bibrangedash 1443}
       \range{pages}{24}
-    \endentry
-    \entry{HATCH}{dataset}{}{}
-      \name{author}{4}{}{%
-        {{hash=fa48a8bcc08c9a1d3ec2a908dac94b56}{%
-           family={Nemet},
-           familyi={N\bibinitperiod},
-           given={G.},
-           giveni={G\bibinitperiod}}}%
-        {{hash=99a34948cbad5191e9f18d5fef2f8233}{%
-           family={Greene},
-           familyi={G\bibinitperiod},
-           given={J.},
-           giveni={J\bibinitperiod}}}%
-        {{hash=7a140fa2b37a68d002404aef6feb418a}{%
-           family={Zaiser},
-           familyi={Z\bibinitperiod},
-           given={A.},
-           giveni={A\bibinitperiod}}}%
-        {{hash=8d1827d1c0e53b065d9895f8d6fd748e}{%
-           family={Hammersmith},
-           familyi={H\bibinitperiod},
-           given={A.},
-           giveni={A\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {Zenodo}%
-      }
-      \strng{namehash}{1be2318eea54e1d9737fb27be4b2ac70}
-      \strng{fullhash}{3e1eaf93d4d72a38b87dd5385094028c}
-      \strng{fullhashraw}{3e1eaf93d4d72a38b87dd5385094028c}
-      \strng{bibnamehash}{1be2318eea54e1d9737fb27be4b2ac70}
-      \strng{authorbibnamehash}{1be2318eea54e1d9737fb27be4b2ac70}
-      \strng{authornamehash}{1be2318eea54e1d9737fb27be4b2ac70}
-      \strng{authorfullhash}{3e1eaf93d4d72a38b87dd5385094028c}
-      \strng{authorfullhashraw}{3e1eaf93d4d72a38b87dd5385094028c}
-      \field{sortinit}{N}
-      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{month}{10}
-      \field{title}{Historical Adoption of Technologies (HATCH) Dataset}
-      \field{year}{2023}
-      \verb{doi}
-      \verb 10.5281/zenodo.10231865
-      \endverb
-      \verb{urlraw}
-      \verb https://doi.org/10.5281/zenodo.10231865
-      \endverb
-      \verb{url}
-      \verb https://doi.org/10.5281/zenodo.10231865
-      \endverb
     \endentry
     \entry{Runge}{article}{}{}
       \name{author}{1}{}{%
@@ -252,6 +170,31 @@
       \field{year}{1997}
       \field{pages}{341\bibrangedash 359}
       \range{pages}{19}
+    \endentry
+    \entry{datasetDiffusion}{dataset}{}{}
+      \name{author}{1}{}{%
+        {{hash=bd310836ff540aa91024647aab17ee1f}{%
+           family={{Various sources}},
+           familyi={V\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Our World in Data}%
+      }
+      \strng{namehash}{bd310836ff540aa91024647aab17ee1f}
+      \strng{fullhash}{bd310836ff540aa91024647aab17ee1f}
+      \strng{fullhashraw}{bd310836ff540aa91024647aab17ee1f}
+      \strng{bibnamehash}{bd310836ff540aa91024647aab17ee1f}
+      \strng{authorbibnamehash}{bd310836ff540aa91024647aab17ee1f}
+      \strng{authornamehash}{bd310836ff540aa91024647aab17ee1f}
+      \strng{authorfullhash}{bd310836ff540aa91024647aab17ee1f}
+      \strng{authorfullhashraw}{bd310836ff540aa91024647aab17ee1f}
+      \field{sortinit}{V}
+      \field{sortinithash}{afb52128e5b4dc4b843768c0113d673b}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Processed by Our World in Data}
+      \field{title}{Technology Diffusion (Comin and Hobijn (2004) and others)}
+      \field{year}{2004}
     \endentry
     \entry{Ye24}{incollection}{}{}
       \name{author}{2}{}{%

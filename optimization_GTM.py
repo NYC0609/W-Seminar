@@ -4,9 +4,9 @@ from scipy.optimize import differential_evolution
 from sklearn.metrics import mean_squared_error
 
 seed_frac = 0
-num_agents = 500
-num_neighbors = 10
-y_data = [0.06,0.11,0.12,0.35,0.55,0.62,0.69,0.72,0.77,0.8]
+num_agents = 300
+num_neighbors = 5
+y_data = [0.01, 0.024, 0.043, 0.064, 0.094, 0.128, 0.171, 0.216, 0.247, 0.293, 0.342, 0.411, 0.494, 0.517, 0.56, 0.63, 0.72, 0.718, 0.709, 0.696, 0.675, 0.691, 0.712, 0.766, 0.792, 0.864, 0.867, 0.892, 0.904, 0.924, 0.941, 0.96, 0.973, 0.977, 0.98, 0.982, 0.983, 0.995, 0.991, 0.993, 0.995, 0.996, 0.997, 0.998, 0.998, 0.998, 0.998, 0.999, 0.999, 0.999, 0.999, 0.998, 0.997]
 seed_frac = y_data[0]
 iterations = len(y_data)
 
@@ -20,12 +20,12 @@ def objective(params):
     return mean_squared_error(y_true=y_data, y_pred=y_pred)
 
 bounds = [
-    (3.0, 4.0),   # alpha
-    (0.1, 0.3),   # trend_sensitivity
+    (0.0, 2.0),   # alpha
+    (0.1, 0.7),   # trend_sensitivity
     (0.001, 0.4)    # update prob
 ]
 
-solver = differential_evolution(func=objective, bounds=bounds, maxiter=1000, tol=0.001)
+solver = differential_evolution(func=objective, bounds=bounds, maxiter=700, tol=0.001)
 
 print(f'solution: {list(solver.x)}')
 print(f'solution score: {solver.fun}')
